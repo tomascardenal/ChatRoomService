@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WindowsService1.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />

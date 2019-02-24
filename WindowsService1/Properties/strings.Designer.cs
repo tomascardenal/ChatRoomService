@@ -164,7 +164,7 @@ namespace WindowsService1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt; Exception while on routine with client {0}.
+        ///   Looks up a localized string similar to Exception while on routine with client {0}.
         /// </summary>
         internal static string SRV_EXCEPTION {
             get {
@@ -173,25 +173,7 @@ namespace WindowsService1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt; {0} issued a #list command.
-        /// </summary>
-        internal static string SRV_LISTCOMMAND {
-            get {
-                return ResourceManager.GetString("SRV_LISTCOMMAND", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt; {0} issued a #quit command.
-        /// </summary>
-        internal static string SRV_QUITCOMMAND {
-            get {
-                return ResourceManager.GetString("SRV_QUITCOMMAND", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt; SocketException: {0}.
+        ///   Looks up a localized string similar to SocketException: {0}.
         /// </summary>
         internal static string SRV_SOCKETEXCEPTION {
             get {
@@ -200,7 +182,7 @@ namespace WindowsService1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt; Client {0} connected at port {1}.
+        ///   Looks up a localized string similar to Client {0} connected at port {1}.
         /// </summary>
         internal static string SRV_USERCONNECT {
             get {
@@ -209,7 +191,7 @@ namespace WindowsService1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt; Client {0} disconnected from port {1}.
+        ///   Looks up a localized string similar to Client {0} disconnected from port {1}.
         /// </summary>
         internal static string SRV_USERDISCONNECT {
             get {
@@ -218,20 +200,74 @@ namespace WindowsService1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt; Usermsg from {0} &gt;&gt; {1} .
-        /// </summary>
-        internal static string SRV_USERSAID {
-            get {
-                return ResourceManager.GetString("SRV_USERSAID", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt; Service listening on port nº {0}.
+        ///   Looks up a localized string similar to Service listening on port nº {0}.
         /// </summary>
         internal static string SRV_WELCOME {
             get {
                 return ResourceManager.GetString("SRV_WELCOME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to connect on cfg port, trying default port.
+        /// </summary>
+        internal static string SVC_FAILED_PORT_CFG {
+            get {
+                return ResourceManager.GetString("SVC_FAILED_PORT_CFG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to connect on default port, ending service.
+        /// </summary>
+        internal static string SVC_FAILED_PORT_DEFAULT {
+            get {
+                return ResourceManager.GetString("SVC_FAILED_PORT_DEFAULT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Config file not found, trying to load on default port.
+        /// </summary>
+        internal static string SVC_FILE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("SVC_FILE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port sucessfully loaded from cfg file: {0}.
+        /// </summary>
+        internal static string SVC_PORTFILE_OK {
+            get {
+                return ResourceManager.GetString("SVC_PORTFILE_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server thread ended.
+        /// </summary>
+        internal static string SVC_SERVER_ENDED {
+            get {
+                return ResourceManager.GetString("SVC_SERVER_ENDED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chatroom service started, trying to load on config port.
+        /// </summary>
+        internal static string SVC_START {
+            get {
+                return ResourceManager.GetString("SVC_START", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Service stopped, ran for {0}s.
+        /// </summary>
+        internal static string SVC_STOP {
+            get {
+                return ResourceManager.GetString("SVC_STOP", resourceCulture);
             }
         }
     }

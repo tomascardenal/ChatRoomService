@@ -40,6 +40,8 @@
             // 
             // serviceInstaller1
             // 
+            this.serviceInstaller1.Description = "Installer for ChatRoomService by Tomás Cardenal López";
+            this.serviceInstaller1.DisplayName = "ChatRoomService";
             this.serviceInstaller1.ServiceName = "ChatRoomService";
             // 
             // ProjectInstaller

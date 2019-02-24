@@ -53,7 +53,7 @@ namespace WindowsService1
             //Console info is locked because of being a shared resource between all clients
             lock (server.Locker)
             {
-                server.Service.writeEvent(string.Format(Properties.strings.SRV_USERCONNECT, ieClient.Address, ieClient.Port));
+                server.writeEvent(string.Format(Properties.strings.SRV_USERCONNECT, ieClient.Address, ieClient.Port));
             }
             //Pointers to reader, writer, and stream
             StreamReader reader = null;
@@ -92,7 +92,7 @@ namespace WindowsService1
                     {
                         server.ClientList.Add(userName, clientSocket);
                     }
-                    catch (ArgumentException e)
+                    catch (ArgumentException)
                     {
                         writer.WriteLine(Properties.strings.CHAT_MULTIPLEUSERSKICKED);
                         writer.Flush();
@@ -110,11 +110,6 @@ namespace WindowsService1
                     string msg = reader.ReadLine();
                     if (msg != null)
                     {
-                        //Show the raw message in our server
-                        lock (server.Locker)
-                        {
-                            server.Service.writeEvent(string.Format(Properties.strings.SRV_USERSAID, userName, msg));
-                        }
                         //Watch out for commands, do the command or, if it's a regular message, broadcast it to all users
                         switch (msg.Trim())
                         {
@@ -122,7 +117,6 @@ namespace WindowsService1
                             case "#quit":
                                 lock (server.Locker)
                                 {
-                                    server.Service.writeEvent(string.Format(Properties.strings.SRV_QUITCOMMAND, userName));
                                     RunChat = false;
                                 }
                                 break;
@@ -130,7 +124,6 @@ namespace WindowsService1
                             case "#list":
                                 lock (server.Locker)
                                 {
-                                    server.Service.writeEvent(string.Format(Properties.strings.SRV_LISTCOMMAND, userName));
                                     writer.WriteLine(Properties.strings.CHAT_LIST);
                                     foreach (KeyValuePair<string, Socket> client in server.ClientList)
                                     {
@@ -163,9 +156,7 @@ namespace WindowsService1
             }
             catch (IOException)
             {
-
-                server.Service.writeEvent(string.Format(Properties.strings.SRV_EXCEPTION, userName));
-
+                server.writeEvent(string.Format(Properties.strings.SRV_EXCEPTION, userName));
             }
             //Close the client socket, and remove it from the list (if previously added)
             clientSocket.Close();
@@ -182,7 +173,7 @@ namespace WindowsService1
                 broadcastMsg(string.Format(Properties.strings.CHAT_LEFTNOTICE, userName));
             }
             //Inform the server of a user leaving
-            server.Service.writeEvent(string.Format(Properties.strings.SRV_USERDISCONNECT, ieClient.Address, ieClient.Port));
+            server.writeEvent(string.Format(Properties.strings.SRV_USERDISCONNECT, ieClient.Address, ieClient.Port));
         }
 
         /// <summary>
@@ -206,7 +197,7 @@ namespace WindowsService1
                 }
                 catch (IOException)
                 {
-                    server.Service.writeEvent(string.Format(Properties.strings.SRV_EXCEPTION, userName));
+                    server.writeEvent(string.Format(Properties.strings.SRV_EXCEPTION, userName));
                 }
             }
         }
