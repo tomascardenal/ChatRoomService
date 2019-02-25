@@ -152,6 +152,7 @@ namespace WindowsService1
                 writeEvent(string.Format(Properties.strings.SRV_SOCKETEXCEPTION, e.Message));
                 this.Service.Stop();
             }
+            this.Service.Stop();
         }
 
         /// <summary>

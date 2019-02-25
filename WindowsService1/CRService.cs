@@ -60,9 +60,9 @@ namespace WindowsService1
         protected override void OnStop()
         {
             TimeSpan elapsedTimestamp = DateTime.Now - onStartTimestamp;
-            server.writeEvent(string.Format(Properties.strings.SVC_STOP, elapsedTimestamp.TotalSeconds));
+            //TODO move this to ChatServer, so it doesn't lock on OnStop()
+         //   server.writeEvent(string.Format(Properties.strings.SVC_STOP, elapsedTimestamp.TotalSeconds));
             server.Run = false;
-            serverThread.Abort();
         }
 
         
