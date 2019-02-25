@@ -50,6 +50,7 @@ namespace WindowsService1
             server = new ChatServer(this);
             server.writeEvent(Properties.strings.SVC_START);
             serverThread = new Thread(server.RunServer);
+            serverThread.IsBackground = true;
             serverThread.Start();
         }
 
@@ -60,6 +61,7 @@ namespace WindowsService1
         {
             TimeSpan elapsedTimestamp = DateTime.Now - onStartTimestamp;
             server.writeEvent(string.Format(Properties.strings.SVC_STOP, elapsedTimestamp.TotalSeconds));
+            server.Run = false;
             serverThread.Abort();
         }
 
